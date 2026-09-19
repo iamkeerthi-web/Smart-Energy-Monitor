@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Smart Energy Monitor</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <h1>⚡ Smart Energy Monitor</h1>
+
+    <p>
+        Calculate the electricity consumption and estimated cost
+        of your appliances.
+    </p>
+
+
+    <hr>
+
+
+    <h2>Add Appliance</h2>
+
+
+    <form id="energyForm">
+
+        <label for="applianceName">
+            Appliance Name:
+        </label>
+
+        <input
+            type="text"
+            id="applianceName"
+            placeholder="Example: Fan"
+            required
+        >
+
+
+        <br><br>
+
+
+        <label for="power">
+            Power Rating (Watts):
+        </label>
+
+        <input
+            type="number"
+            id="power"
+            placeholder="Example: 75"
+            min="0"
+            required
+        >
+
+
+        <br><br>
+
+
+        <label for="hours">
+            Hours Used Per Day:
+        </label>
+
+        <input
+            type="number"
+            id="hours"
+            placeholder="Example: 8"
+            min="0"
+            max="24"
+            step="0.1"
+            required
+        >
+
+
+        <br><br>
+
+
+        <label for="days">
+            Number of Days:
+        </label>
+
+        <input
+            type="number"
+            id="days"
+            placeholder="Example: 30"
+            min="1"
+            max="31"
+            required
+        >
+
+
+        <br><br>
+
+
+        <label for="rate">
+            Electricity Rate (₹ per kWh):
+        </label>
+
+        <input
+            type="number"
+            id="rate"
+            placeholder="Example: 8"
+            min="0"
+            step="0.01"
+            required
+        >
+
+
+        <br><br>
+
+
+        <button type="submit">
+            Add Appliance
+        </button>
+
+    </form>
+
+
+    <hr>
+
+
+    <h2>Appliance List</h2>
+
+
+    <table id="applianceTable">
+
+        <thead>
+
+            <tr>
+
+                <th>Appliance</th>
+
+                <th>Power (W)</th>
+
+                <th>Hours/Day</th>
+
+                <th>Energy (kWh)</th>
+
+                <th>Cost (₹)</th>
+
+                <th>Action</th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody id="applianceTableBody">
+
+            <!-- Appliances will be added here using JavaScript -->
+
+        </tbody>
+
+    </table>
+
+
+    <hr>
+
+
+    <h2>Total</h2>
+
+
+    <p>
+
+        Total Energy Consumption:
+
+        <span id="totalEnergy">
+            0.00
+        </span>
+
+        kWh
+
+    </p>
+
+
+    <p>
+
+        Total Estimated Cost:
+
+        ₹<span id="totalCost">
+            0.00
+        </span>
+
+    </p>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
