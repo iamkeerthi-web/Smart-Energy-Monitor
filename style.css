@@ -172,3 +172,81 @@ body > p {
     }
 
 }
+
+/* ================================
+   Dashboard
+================================ */
+
+.dashboard {
+    max-width: 1000px;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+
+/* Dashboard Card */
+
+.card {
+    background-color: white;
+    padding: 25px 20px;
+    border-radius: 12px;
+    text-align: center;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+    border-top: 4px solid #2e7d32;
+}
+
+
+/* Card heading */
+
+.card h3 {
+    color: #555;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+
+/* Card value */
+
+.card p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+
+/* Responsive Dashboard */
+
+@media (max-width: 800px) {
+
+    .dashboard {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* ================================
+   Energy Chart
+================================ */
+
+.chart-container {
+    max-width: 1000px;
+    height: 400px;
+    margin: 20px auto 40px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
