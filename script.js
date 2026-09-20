@@ -9,6 +9,23 @@ const totalEnergyElement =
 const totalCostElement =
     document.getElementById("totalCost");
 
+const dashboardEnergy =
+    document.getElementById("dashboardEnergy");
+
+const dashboardCost =
+    document.getElementById("dashboardCost");
+
+const highestConsumer =
+    document.getElementById("highestConsumer");
+
+const applianceCount =
+    document.getElementById("applianceCount");
+
+const chartCanvas =
+    document.getElementById("energyChart");
+
+let energyChart = null;
+
 
 let appliances = [];
 
@@ -75,6 +92,8 @@ form.addEventListener("submit", function(event) {
     // Calculate total consumption and cost
     calculateTotal();
 
+    // update the cart
+    updateChart();
 
     // Clear the form
     form.reset();
@@ -130,6 +149,8 @@ function calculateTotal() {
 
     let totalCost = 0;
 
+    let highestAppliance = null;
+
 
     appliances.forEach(function(appliance) {
 
@@ -137,15 +158,58 @@ function calculateTotal() {
 
         totalCost += appliance.cost;
 
+
+        // Find highest energy consuming appliance
+
+        if (
+            highestAppliance === null ||
+            appliance.energy > highestAppliance.energy
+        ) {
+
+            highestAppliance = appliance;
+
+        }
+
     });
 
+
+    // Update total section
 
     totalEnergyElement.textContent =
         totalEnergy.toFixed(2);
 
-
     totalCostElement.textContent =
         totalCost.toFixed(2);
+
+
+    // Update dashboard
+
+    dashboardEnergy.textContent =
+        totalEnergy.toFixed(2);
+
+    dashboardCost.textContent =
+        totalCost.toFixed(2);
+
+
+    // Number of appliances
+
+    applianceCount.textContent =
+        appliances.length;
+
+
+    // Highest consumer
+
+    if (highestAppliance !== null) {
+
+        highestConsumer.textContent =
+            highestAppliance.name;
+
+    } else {
+
+        highestConsumer.textContent =
+            "---";
+
+    }
 
 }
 
@@ -159,8 +223,81 @@ function deleteAppliance(index) {
     // Update table
     displayAppliances();
 
+    calculateTotal();
+
 
     // Update totals
     calculateTotal();
+
+}
+
+function updateChart() {
+
+    const names = appliances.map(function(appliance) {
+        return appliance.name;
+    });
+
+
+    const energyValues = appliances.map(function(appliance) {
+        return appliance.energy;
+    });
+
+
+    // Remove old chart
+    if (energyChart !== null) {
+        energyChart.destroy();
+    }
+
+
+    // Create new chart
+    energyChart = new Chart(chartCanvas, {
+
+        type: "bar",
+
+        data: {
+
+            labels: names,
+
+            datasets: [
+                {
+                    label: "Energy Consumption (kWh)",
+
+                    data: energyValues
+                }
+            ]
+
+        },
+
+        options: {
+
+            responsive: true,
+
+            maintainAspectRatio: false,
+
+            scales: {
+
+                y: {
+                    beginAtZero: true,
+
+                    title: {
+                        display: true,
+
+                        text: "Energy (kWh)"
+                    }
+                },
+
+                x: {
+                    title: {
+                        display: true,
+
+                        text: "Appliances"
+                    }
+                }
+
+            }
+
+        }
+
+    });
 
 }
