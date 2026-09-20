@@ -26,6 +26,43 @@
         of your appliances.
     </p>
 
+    <!-- Dashboard Cards -->
+
+<div class="dashboard">
+
+    <div class="card">
+        <h3>⚡ Total Energy</h3>
+        <p>
+            <span id="dashboardEnergy">0.00</span> kWh
+        </p>
+    </div>
+
+
+    <div class="card">
+        <h3>💰 Estimated Cost</h3>
+        <p>
+            ₹<span id="dashboardCost">0.00</span>
+        </p>
+    </div>
+
+
+    <div class="card">
+        <h3>🔥 Highest Consumer</h3>
+        <p id="highestConsumer">
+            ---
+        </p>
+    </div>
+
+
+    <div class="card">
+        <h3>🏠 Appliances</h3>
+        <p>
+            <span id="applianceCount">0</span>
+        </p>
+    </div>
+
+</div>
+
 
     <hr>
 
@@ -182,6 +219,7 @@
     </p>
 
 
+
     <p>
 
         Total Estimated Cost:
@@ -192,8 +230,17 @@
 
     </p>
 
+    <hr>
 
-    <script src="script.js"></script>
+   <h2>📊 Energy Consumption</h2>
+
+   <div class="chart-container">
+       <canvas id="energyChart"></canvas>
+   </div>
+
+
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <script src="script.js"></script>
 
 </body>
 
