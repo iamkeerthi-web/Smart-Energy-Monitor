@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Energy Monitor | Account</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f8f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            width: 320px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px #0002;
+        }
+
+        h2 {
+            color: #176b45;
+            text-align: center;
+        }
+
+        input, button {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 11px;
+            margin: 8px 0;
+        }
+
+        button {
+            background: #176b45;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .switch {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .switch button {
+            background: transparent;
+            color: #176b45;
+            text-decoration: underline;
+        }
+
+        #message {
+            text-align: center;
+            overflow-wrap: anywhere;
+        }
+
+        #dashboardLink {
+            display: block;
+            text-align: center;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 id="formTitle">Create Account</h2>
+
+        <form id="authForm">
+            <input
+                type="text"
+                id="name"
+                placeholder="Your name"
+                required
+            >
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Email address"
+                required
+            >
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Password (at least 8 characters)"
+                minlength="8"
+                required
+            >
+
+            <button type="submit" id="submitButton">
+                Register
+            </button>
+        </form>
+
+        <p id="message"></p>
+
+        <div class="switch">
+            <span id="switchText">Already have an account?</span>
+            <button type="button" id="switchButton">Login</button>
+        </div>
+
+        <a href="index.html" id="dashboardLink" hidden>
+            Go to Dashboard
+        </a>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>
