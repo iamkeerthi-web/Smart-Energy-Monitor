@@ -250,3 +250,33 @@ body > p {
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
+
+
+/* ================================
+   Energy Insights
+================================ */
+
+.insights-container {
+    max-width: 1000px;
+    margin: 20px auto 40px;
+}
+
+.insight-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+    border-left: 5px solid #2e7d32;
+}
+
+.insight-card h3 {
+    margin-top: 0;
+    color: #2e7d32;
+}
+
+.insight-card p {
+    color: #555;
+    line-height: 1.6;
+}
