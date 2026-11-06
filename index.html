@@ -155,9 +155,17 @@
         <br><br>
 
 
-        <button type="submit">
-            Add Appliance
-        </button>
+        <button type="submit" id="submitButton">
+    Add Appliance
+</button>
+
+<button
+    type="button"
+    id="cancelEditButton"
+    hidden
+>
+    Cancel Edit
+</button>
 
     </form>
 
@@ -237,6 +245,27 @@
    <div class="chart-container">
        <canvas id="energyChart"></canvas>
    </div>
+
+
+   <hr>
+
+<h2>💡 Energy Insights</h2>
+
+<div class="insights-container">
+
+    <div class="insight-card">
+
+        <h3 id="insightTitle">
+            No data available
+        </h3>
+
+        <p id="insightMessage">
+            Add appliances to get energy-saving insights.
+        </p>
+
+    </div>
+
+</div>
 
 
    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
